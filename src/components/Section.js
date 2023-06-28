@@ -1,17 +1,26 @@
 import React from "react";
 import { styled } from "styled-components";
+import Fade from "react-reveal/Fade";
 
-function Section() {
+function Section({
+  title,
+  description,
+  leftBtnText,
+  rightBtnText,
+  backgroundImg,
+}) {
   return (
-    <Wrap>
-      <ItemText>
-        <h1>Model S</h1>
-        <p>Order Online fot Touchless Delivery</p>
-      </ItemText>
+    <Wrap bgImage={backgroundImg}>
+      <Fade bottom>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
       <Button>
         <ButtonGroup>
-          <LeftButton>Custom Order</LeftButton>
-          <RightButton>Existing Inventory</RightButton>
+          <LeftButton>{leftBtnText}</LeftButton>
+          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
         </ButtonGroup>
         <DownArrow src="../assets/images/down-arrow.svg" />
       </Button>
@@ -27,11 +36,11 @@ const Wrap = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no repeat;
-  background-image: url("../assets/images/model-s.jpg");
   display: flex;
   flex-direction: column;
   justify-content: space-between; //vertical column
   align-items: center; //horizontal
+  background-image: ${(props) => `url("../assets/images/${props.bgImage}")`};
 `;
 
 const ItemText = styled.div`
@@ -41,28 +50,31 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
-const RightButton = styled.div`
+const LeftButton = styled.div`
   background-color: rgba(23, 26, 32, 0.8);
   height: 40px;
-  width: 256px;
+  width: 230px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100px;
+  border-radius: 4px;
   opacity: 0.85;
-  text-transform: uppercase;
-  font-size: 12px;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
   margin: 8px;
 `;
 
-const LeftButton = styled(RightButton)`
-    background: white;
-    opacity: 0.65;
-    color: black;
-    
+const RightButton = styled(LeftButton)`
+  background: white;
+  opacity: 0.65;
+  color: black;
 `;
 
 const DownArrow = styled.img`
