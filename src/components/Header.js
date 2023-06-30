@@ -2,28 +2,42 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { Link } from "react-router-dom";
+import Fade from "react-reveal/Fade";
+export {
+  Header,
+  Container,
+  Menu,
+  RightMenu,
+  CustomMenu,
+  BurgerNav,
+  CustomClose,
+  CloseWrapper,
+  Backdrop,
+};
 
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
 
   return (
     <Container>
-      <a>
+      <Link to="">
         <img src="/assets/images/logo.svg" alt="Tesla Logo" />
-      </a>
+      </Link>
 
       <Menu>
-        <a href="#">Model S</a>
-        <a href="#">Model 3</a>
-        <a href="#">Model X</a>
-        <a href="#">Model Y</a>
-        <a href="#">Solar Roof</a>
-        <a href="#">Solar Panels</a>
-        <a href="#">Powerwall</a>
+        <Link to="/model-s">Model S</Link>
+        <Link to="/model-3">Model 3</Link>
+        <Link to="/model-x">Model X</Link>
+        <Link to="/model-y">Model Y</Link>
+        <Link to="/solar-roof">Solar Roof</Link>
+        <Link to="/solar-panels">Solar Panels</Link>
+        <Link to="/powerwall">Powerwall</Link>
 
         <RightMenu>
-          <a href="#">Shop</a>
-          <a href="#">Account</a>
+          <Link to="/shop">Shop</Link>
+          <Link to="/account">Account</Link>
+
           <CustomMenu onClick={() => setBurgerStatus(true)} />
         </RightMenu>
         <BurgerNav show={burgerStatus}>
@@ -31,55 +45,55 @@ function Header() {
             <CustomClose onClick={() => setBurgerStatus(false)} />
           </CloseWrapper>
           <li>
-            <a href="#">Existing Inventory</a>
+            <Link to="#">Existing Inventory</Link>
           </li>
           <li>
-            <a href="#">Used Inventory</a>
+            <Link to="#">Used Inventory</Link>
           </li>
           <li>
-            <a href="#">Trade-In</a>
+            <Link to="#">Trade-In</Link>
           </li>
           <li>
-            <a href="#">Demo Drive</a>
+            <Link to="#">Demo Drive</Link>
           </li>
           <li>
-            <a href="#">Insurence</a>
+            <Link to="#">Insurence</Link>
           </li>
           <li>
-            <a href="#">Fleet</a>
+            <Link to="#">Fleet</Link>
           </li>
           <li>
-            <a href="#">Cybertruck</a>
+            <Link to="#">Cybertruck</Link>
           </li>
           <li>
-            <a href="#">Roadster</a>
+            <Link to="#">Roadster</Link>
           </li>
           <li>
-            <a href="#">Semi</a>
+            <Link to="#">Semi</Link>
           </li>
           <li>
-            <a href="#">Charging</a>
+            <Link to="#">Charging</Link>
           </li>
           <li>
-            <a href="#">Commercial Energy</a>
+            <Link to="#">Commercial Energy</Link>
           </li>
           <li>
-            <a href="#">Utilities</a>
+            <Link to="#">Utilities</Link>
           </li>
           <li>
-            <a href="#">Careers</a>
+            <Link to="#">Careers</Link>
           </li>
           <li>
-            <a href="#">Find Us</a>
+            <Link to="#">Find Us</Link>
           </li>
           <li>
-            <a href="#">Events</a>
+            <Link to="#">Events</Link>
           </li>
           <li>
-            <a href="#">Supports</a>
+            <Link to="#">Supports</Link>
           </li>
           <li>
-            <a href="#">Investor Relations</a>
+            <Link to="#">Investor Relations</Link>
           </li>
         </BurgerNav>
       </Menu>
@@ -108,6 +122,8 @@ const Menu = styled.div`
   align-items: center;
   justify-content: flex;
   flex: 0.85;
+
+
   a {
     font-weight: 600;
     flex-wrap: nowrap;
@@ -115,6 +131,10 @@ const Menu = styled.div`
     text-decoration: none;
     color: black;
     margin-right: 20px;
+  }
+
+  a :hover{
+    color: white;
   }
 
   @media (max-width: 768px) {
