@@ -6,6 +6,18 @@
   padding: 0;
 }
 
+/* :root{
+  --body_background: white;
+  --body_color:black;
+  --link_color:navy;
+}
+
+[data-theme="dark"]{
+  --body_background: #282c34;
+  --body_color: white;
+  --link_color:cyan;
+} */
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -14,6 +26,9 @@ body {
 a {
   text-decoration: none;
 }
+
+
+
 
 @keyframes animateDown {
   0%,
