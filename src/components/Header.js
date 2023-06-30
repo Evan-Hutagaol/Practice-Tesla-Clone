@@ -4,6 +4,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
+import './DarkMode.css'
+
 export {
   Header,
   Container,
@@ -130,11 +132,28 @@ const Menu = styled.div`
     padding: 0 10px;
     text-decoration: none;
     color: black;
-    margin-right: 20px;
+    position: relative;
+    margin: 20px;
   }
 
-  a :hover{
-    color: white;
+  /* a:hover{
+    color: whitesmoke;
+  } */
+
+  a:after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 0;
+    left:0;
+    bottom: -7px;
+    transition: 0.5s;
+    /* transform: translateX(-0%); */
+  }
+
+  a:hover:after{
+    width: 100%;
   }
 
   @media (max-width: 768px) {
@@ -169,13 +188,11 @@ const BurgerNav = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
-  transition: transform 0.3s;
+  transition: transform 0.6s;
   transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
 
   li {
     padding: 15px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
     a {
       font-weight: 600;
     }
