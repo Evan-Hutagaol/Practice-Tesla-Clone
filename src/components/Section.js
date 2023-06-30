@@ -5,6 +5,7 @@ import Zoom from "react-reveal/Zoom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Roll from 'react-reveal/Roll';
 
 function Section({
   title,
@@ -22,11 +23,15 @@ function Section({
   peakpower2,
 }) {
   return (
-    <Wrap bgImage={backgroundImg}>
+    // <Roll right>
+      <Wrap bgImage={backgroundImg}>
       <Zoom>
         <ItemText>
           <h1>{title}</h1>
-          <h5>{description}</h5>
+          {/* <h5>{description}</h5> */}
+          <a href="https://cis.del.ac.id/user/login" target="blank">
+            {description}
+          </a>
         </ItemText>
       </Zoom>
 
@@ -51,16 +56,22 @@ function Section({
         </Row>
       </CenteredContainer>
       <Button>
-        <Fade bottom>
-          <ButtonGroup>
+        {/* <Fade bottom> */}
+        <ButtonGroup>
+          <Fade left>
             <LeftButton>{leftBtnText}</LeftButton>
+          </Fade>
+          <Fade right>
             {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
-            {/* <RightButton>{rightBtnText}</RightButton> */}
-          </ButtonGroup>
-        </Fade>
+          </Fade>
+          {/* <RightButton>{rightBtnText}</RightButton> */}
+        </ButtonGroup>
+        {/* </Fade> */}
         {/* <DownArrow src="../assets/images/down-arrow.svg" /> */}
       </Button>
     </Wrap>
+
+    // </Roll>
   );
 }
 
@@ -87,12 +98,12 @@ const Wrap = styled.div`
   h3 {
     padding-top: 25%;
     color: white;
-    font-size: 24px;
+    font-size: 36px;
   }
 
   p {
     color: white;
-    font-size: 12px;
+    font-size: 20px;
     height: 10%;
     font-weight: bold;
   }
@@ -105,6 +116,30 @@ const Wrap = styled.div`
 const ItemText = styled.div`
   padding-top: 15vh;
   text-align: center;
+  a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    margin: 20px;
+
+    
+  }
+
+  a:after{
+    content: '';
+    position: absolute;
+    background-color: black;
+    height: 1.5px;
+    width: 0;
+    left:0;
+    bottom: -7px;
+    transition: 0.5s;
+    /* transform: translateX(-0%); */
+  }
+
+  a:hover:after{
+    width: 100%;
+  }
 `;
 const ButtonGroup = styled.div`
   display: flex;
@@ -148,5 +183,5 @@ const CenteredContainer = styled(Container)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 25%;
+  padding-top: 300px;
 `;
