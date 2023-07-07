@@ -5,7 +5,7 @@ import Zoom from "react-reveal/Zoom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Roll from 'react-reveal/Roll';
+import Roll from "react-reveal/Roll";
 
 function Section({
   title,
@@ -24,12 +24,12 @@ function Section({
 }) {
   return (
     // <Roll right>
-      <Wrap bgImage={backgroundImg}>
+    <Wrap bgImage={backgroundImg}>
       <Zoom>
         <ItemText>
           <h1>{title}</h1>
           {/* <h5>{description}</h5> */}
-          <a href="https://cis.del.ac.id/user/login" target="blank">
+          <a href="https://www.tesla.com/" target="blank">
             {description}
           </a>
         </ItemText>
@@ -96,7 +96,7 @@ const Wrap = styled.div`
   } */
 
   h3 {
-    padding-top: 25%;
+    padding: 10px;
     color: white;
     font-size: 36px;
   }
@@ -121,23 +121,21 @@ const ItemText = styled.div`
     text-decoration: none;
     position: relative;
     margin: 20px;
-
-    
   }
 
-  a:after{
-    content: '';
+  a:after {
+    content: "";
     position: absolute;
     background-color: black;
     height: 1.5px;
     width: 0;
-    left:0;
+    left: 0;
     bottom: -7px;
     transition: 0.5s;
     /* transform: translateX(-0%); */
   }
 
-  a:hover:after{
+  a:hover:after {
     width: 100%;
   }
 `;
@@ -157,18 +155,45 @@ const LeftButton = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+  border: 2px solid white;
   opacity: 0.85;
   text-transform: none;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   margin: 8px;
+
+  &:hover {
+    background-color: white; /* Modify the background color */
+    opacity: 1; /* Modify the opacity */
+    color: black;
+  }
 `;
 
-const RightButton = styled(LeftButton)`
-  background: white;
+const RightButton = styled.div`
+  /* background: white;
   opacity: 0.65;
+  color: black; */
+  background-color: white;
+  height: 40px;
+  width: 230px;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid black;
+  opacity: 0.85;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 8px;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
 `;
 
 // const DownArrow = styled.img`
@@ -183,5 +208,10 @@ const CenteredContainer = styled(Container)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 300px;
+  padding: 20px;
+  height: 20%;
+  position: absolute;
+  top: 70%;
+  left: 25%;
+  transform: translate(-20%, -20%);
 `;
